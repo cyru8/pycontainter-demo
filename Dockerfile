@@ -1,6 +1,6 @@
 # first stage
 From python:3.8 AS builder
-COPY requirements.txt
+COPY requirements.txt .
 
 # Install dependencies to the local user directory (e.g: /local/.local)
 RUN pip install --user -r requirements.txt
