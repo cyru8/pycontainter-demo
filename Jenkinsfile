@@ -65,7 +65,7 @@ pipeline {
         //             }
         //         }
         //     }
-        }
+        //}
         //Trivy: https://github.com/aquasecurity/trivy
         //stage('Scan Containers for Vulnerabilities with Trivy') {
         //    steps {
