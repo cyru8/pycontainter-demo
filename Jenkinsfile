@@ -11,7 +11,6 @@ pipeline {
             steps {
                 sh(script: 'docker images -a')
                 sh(script: """
-                cd app/
                 docker build -t pycontainter-demo .
                 docker images -a
                 docker ps
