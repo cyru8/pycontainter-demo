@@ -45,10 +45,10 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh(script: """
-                    echo "Test passed!"
-                    pytest ./tests/test_sample.py
-                    """)
+                //sh(script: """
+                //    echo "Test passed!"
+                pytest ./tests/test_sample.py
+                //    """)
                  
             }
         }
