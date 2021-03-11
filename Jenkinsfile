@@ -47,7 +47,6 @@ pipeline {
             steps {
                 sh(script: """
                     echo "Test passed!"
-                    pip install flake8 pytest pytest-cov
                     pytest ./tests/test_sample.py
                     """)
                  
