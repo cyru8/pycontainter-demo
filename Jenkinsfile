@@ -43,13 +43,13 @@ pipeline {
                 }
             }
         }
-        // stage('Run Tests') {
-        //     steps {
-        //         sh(script: """
-        //             echo "Test passed!"
-        //             """)
-        //         //    pytest ./tests/test_sample.py
-        //     }
+        stage('Run Tests') {
+            steps {
+                sh(script: """
+                    echo "Test passed!"
+                    """)
+                    pytest ./tests/test_sample.py
+            }
         // }
         // stage('Stop test app') {
         //     steps {
