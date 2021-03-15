@@ -35,15 +35,15 @@ pipeline {
                 """)
            }
         }
-        // }
-        // stage('Start test app') {
-        //     steps {
-        //         sh(script: """
-        //             docker run -d -p 5000:5000 pycontainter-demo
-        //             docker ps -a
-        //             ./scripts/test_container.sh
-        //             """)
-        // }
+        stage('Start test app') {
+            steps {
+                sh(script: """
+                    docker run -d -p 5000:5000 pycontainter-demo
+                    docker ps -a
+                    ./scripts/test_container.sh
+                    """)
+            }
+        }
         // stage('Start test app') {
         //     steps {
         //         sh(script: """
