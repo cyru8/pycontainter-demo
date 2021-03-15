@@ -39,7 +39,7 @@ pipeline {
             steps {
                 sh(script: """
                     docker run -d -p 5000:5000 pycontainter-demo
-                    docker ps -a
+                    docker ps
                     ./scripts/test_container.sh
                     """)
             }
