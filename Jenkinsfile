@@ -60,13 +60,13 @@ pipeline {
                 //    pytest ./tests/test_sample.py
             }
         }
-        stage('Stop test app') {
-            steps {
-                sh(script: """
-                docker-compose down
-                """)
-            }
-        }
+        // stage('Stop test app') {
+        //     steps {
+        //         sh(script: """
+        //         docker-compose down
+        //         """)
+        //     }
+        // }
         // stage("Push Container") {
         //     steps {
         //         echo "Workspace is $WORKSPACE"
