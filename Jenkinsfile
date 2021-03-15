@@ -1,46 +1,38 @@
+// pipeline {
+//     agent {
+//         docker {
+//             image 'oadetiba/cyru8-flask-app:latest'
+//         }
+//     }
+//     stages {
+//         stage('Verify') {
+//             steps {
+//                 echo "${env.GIT_BRANCH}"
+//                 sh(script: """
+//                 printenv
+//                 ls -l '$wWORKSPACE'
+//                 """)
+//            }
+//         }
+
 pipeline {
-    agent {
-        docker {
-            image 'oadetiba/cyru8-flask-app:latest'
-        }
-    }
-    stages {
-        stage('Verify') {
+   agent any
+
+   stages {
+        stage('Verify Branch') {
             steps {
                 echo "${env.GIT_BRANCH}"
-                sh(script: """
-                printenv
-                ls -l '$wWORKSPACE'
-                """)
            }
         }
-        //     steps {
-        //         sh '''
-        //           ls
-        //         '''
-        //         sh 'printenv'
-        //         sh 'ls -l "$WORKSPACE"'
-        //     }
-        // }
-
-//pipeline {
-//    agent any
-
-//    stages {
-        // stage('Verify Branch') {
-        //     steps {
-        //         echo "${env.GIT_BRANCH}"
-        //    }
-        // }
-        // stage('Docker Build') {
-        //     steps {
-        //         sh(script: 'pwd')
-        //         sh(script: """
-        //         docker build -t pycontainter-demo .
-        //         docker images -a
-        //         docker ps
-        //         """)
-        //    }
+        stage('Docker Build') {
+            steps {
+                sh(script: 'pwd')
+                sh(script: """
+                docker build -t pycontainter-demo .
+                docker images -a
+                docker ps
+                """)
+           }
         // }
         // stage('Start test app') {
         //     steps {
