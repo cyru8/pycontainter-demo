@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.8'
+            image 'mcr.microsoft.com/dotnet/core/sdk:3.1.101'
         }
     }
     stages {
