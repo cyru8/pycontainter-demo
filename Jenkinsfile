@@ -53,15 +53,15 @@ pipeline {
         //             ./scripts/test_container.sh
         //             """)
         // }
-        // post {
-        //     success {
-        //         echo "App started successfully :)"
-        //     }
-        //     failure {
-        //         echo "App failed to start :("
-        //         }
-        //     }
-        // }
+        post {
+            success {
+                echo "App started successfully :)"
+            }
+            failure {
+                echo "App failed to start :("
+                }
+            }
+        }
         // stage('Run Tests') {
         //     steps {
         //         sh(script: """
