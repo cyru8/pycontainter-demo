@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'mcr.microsoft.com/dotnet/core/sdk:3.1.101'
+            image 'bimpp/python-openjdk-node:3.8-browsers'
         }
     }
     stages {
