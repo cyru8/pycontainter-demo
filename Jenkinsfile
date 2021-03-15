@@ -15,11 +15,10 @@ pipeline {
             }
         }
 
-
 //pipeline {
 //    agent any
 
-    stages {
+//    stages {
         stage('Verify Branch') {
             steps {
                 echo "${env.GIT_BRANCH}"
