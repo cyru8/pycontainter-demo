@@ -8,16 +8,20 @@ pipeline {
         stage('Verify') {
             steps {
                 echo "${env.GIT_BRANCH}"
+                sh(script: """
+                printenv
+                ls -l '$wWORKSPACE'
+                """)
            }
         }
-            steps {
-                sh '''
-                  ls
-                '''
-                sh 'printenv'
-                sh 'ls -l "$WORKSPACE"'
-            }
-        }
+        //     steps {
+        //         sh '''
+        //           ls
+        //         '''
+        //         sh 'printenv'
+        //         sh 'ls -l "$WORKSPACE"'
+        //     }
+        // }
 
 //pipeline {
 //    agent any
