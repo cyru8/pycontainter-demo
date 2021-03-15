@@ -44,11 +44,6 @@ pipeline {
                     """)
         }
         post {
-            always {
-                script {
-                    receiver_container.stop()
-                }
-            }
             success {
                 echo "App started successfully :)"
             }
