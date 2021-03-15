@@ -10,7 +10,7 @@
 //                 echo "${env.GIT_BRANCH}"
 //                 sh(script: """
 //                 printenv
-//                 ls -l '$wWORKSPACE'
+//                 ls -l '$WORKSPACE'
 //                 """)
 //            }
 //         }
@@ -28,6 +28,7 @@ pipeline {
             steps {
                 sh(script: 'pwd')
                 sh(script: """
+                ls -l '$WORKSPACE'
                 docker build -t pycontainter-demo .
                 docker images -a
                 docker ps
