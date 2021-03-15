@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'bimpp/python-openjdk-node:3.8-browsers'
+            image 'oadetiba/cyru8-flask-app:latest'
         }
     }
     stages {
