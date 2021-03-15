@@ -33,6 +33,7 @@ pipeline {
                 docker ps
                 """)
            }
+        }
         // }
         // stage('Start test app') {
         //     steps {
