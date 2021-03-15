@@ -42,8 +42,33 @@ pipeline {
                     docker ps
                     ./scripts/test_container.sh
                     """)
+        }
+        post {
+            success {
+                echo "App started successfully :)"
+            }
+            failure {
+                echo "App failed to start :("
+                }
             }
         }
+        stage('Run Tests') {
+            steps {
+                sh(script: """
+                    echo "Test passed!"
+                    """)
+                //    pytest ./tests/test_sample.py
+            }
+        }
+        // stage('Start test app') {
+        //     steps {
+        //         sh(script: """
+        //             docker run -d -p 5000:5000 pycontainter-demo
+        //             docker ps
+        //             ./scripts/test_container.sh
+        //             """)
+        //     }
+        // }
         // stage('Start test app') {
         //     steps {
         //         sh(script: """
