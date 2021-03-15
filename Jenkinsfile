@@ -44,6 +44,11 @@ pipeline {
                     """)
         }
         post {
+            always {
+                script {
+                    receiver_container.stop()
+                }
+            }
             success {
                 echo "App started successfully :)"
             }
@@ -60,50 +65,13 @@ pipeline {
                 //    pytest ./tests/test_sample.py
             }
         }
-        // stage('Start test app') {
-        //     steps {
-        //         sh(script: """
-        //             docker run -d -p 5000:5000 pycontainter-demo
-        //             docker ps
-        //             ./scripts/test_container.sh
-        //             """)
-        //     }
-        // }
-        // stage('Start test app') {
-        //     steps {
-        //         sh(script: """
-        //             docker-compose up -d
-        //             docker ps -a
-        //             docker-compose ps
-        //             ./scripts/test_container.sh
-        //             """)
-        // }
-    
-    // post {
-    //     success {
-    //         echo "App started successfully :)"
-    //                      }
-    //         failure {
-    //         echo "App failed to start :("
-    //             //mail to: team@example.com, subject: 'The Pipeline failed :('
-    //         }
-    //     }
-        // stage('Run Tests') {
-        //     steps {
-        //         sh(script: """
-        //             echo "Test passed!"
-        //             pytest ./tests/test_sample.py
-        //             """)
-                 
-        //     }
-        // }
-        // stage('Stop test app') {
-        //     steps {
-        //         sh(script: """
-        //         docker-compose down
-        //         """)
-        //     }
-        // }
+        stage('Stop test app') {
+            steps {
+                sh(script: """
+                docker-compose down
+                """)
+            }
+        }
         // stage("Push Container") {
         //     steps {
         //         echo "Workspace is $WORKSPACE"
