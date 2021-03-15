@@ -54,15 +54,15 @@ pipeline {
         //             """)
         // }
     
-    post {
-        success {
-            echo "App started successfully :)"
-                         }
-            failure {
-            echo "App failed to start :("
-                //mail to: team@example.com, subject: 'The Pipeline failed :('
-            }
-        }
+    // post {
+    //     success {
+    //         echo "App started successfully :)"
+    //                      }
+    //         failure {
+    //         echo "App failed to start :("
+    //             //mail to: team@example.com, subject: 'The Pipeline failed :('
+    //         }
+    //     }
         // stage('Run Tests') {
         //     steps {
         //         sh(script: """
