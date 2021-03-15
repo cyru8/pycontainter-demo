@@ -61,7 +61,6 @@ pipeline {
                 echo "App failed to start :("
                 }
             }
-        }
         // stage('Run Tests') {
         //     steps {
         //         sh(script: """
