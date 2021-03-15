@@ -32,24 +32,24 @@ pipeline {
         //         echo "${env.GIT_BRANCH}"
         //    }
         // }
-        stage('Docker Build') {
-            steps {
-                sh(script: 'pwd')
-                sh(script: """)
-                docker build -t pycontainter-demo .
-                docker images -a
-                docker ps
-                """)
-           }
-        }
-        stage('Start test app') {
-            steps {
-                sh(script: """
-                    docker run -d -p 5000:5000 pycontainter-demo
-                    docker ps -a
-                    ./scripts/test_container.sh
-                    """)
-        }
+        // stage('Docker Build') {
+        //     steps {
+        //         sh(script: 'pwd')
+        //         sh(script: """
+        //         docker build -t pycontainter-demo .
+        //         docker images -a
+        //         docker ps
+        //         """)
+        //    }
+        // }
+        // stage('Start test app') {
+        //     steps {
+        //         sh(script: """
+        //             docker run -d -p 5000:5000 pycontainter-demo
+        //             docker ps -a
+        //             ./scripts/test_container.sh
+        //             """)
+        // }
         // stage('Start test app') {
         //     steps {
         //         sh(script: """
@@ -59,24 +59,24 @@ pipeline {
         //             ./scripts/test_container.sh
         //             """)
         // }
-        post {
-            success {
-                echo "App started successfully :)"
-            }
-            failure {
-                echo "App failed to start :("
-                }
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                sh(script: """
-                    echo "Test passed!"
-                    pytest ./tests/test_sample.py
-                    """)
+        // post {
+        //     success {
+        //         echo "App started successfully :)"
+        //     }
+        //     failure {
+        //         echo "App failed to start :("
+        //         }
+        //     }
+        // }
+        // stage('Run Tests') {
+        //     steps {
+        //         sh(script: """
+        //             echo "Test passed!"
+        //             pytest ./tests/test_sample.py
+        //             """)
                  
-            }
-        }
+        //     }
+        // }
         // stage('Stop test app') {
         //     steps {
         //         sh(script: """
