@@ -16,9 +16,9 @@
 //         }
 
 pipeline {
-   agent any
+    agent any
 
-   stages {
+    stages {
         stage('Verify Branch') {
             steps {
                 echo "${env.GIT_BRANCH}"
@@ -53,14 +53,16 @@ pipeline {
         //             ./scripts/test_container.sh
         //             """)
         // }
-        post {
-            success {
-                echo "App started successfully :)"
-                }
+    
+    post {
+        success {
+            echo "App started successfully :)"
+                         }
             failure {
-                echo "App failed to start :("
-                }
+            echo "App failed to start :("
+                //mail to: team@example.com, subject: 'The Pipeline failed :('
             }
+        }
         // stage('Run Tests') {
         //     steps {
         //         sh(script: """
