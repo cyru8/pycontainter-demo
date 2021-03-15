@@ -53,8 +53,8 @@ pipeline {
         //             ./scripts/test_container.sh
         //             """)
         // }
-            post {
-                success {
+        post {
+            success {
                 echo "App started successfully :)"
                 }
             failure {
