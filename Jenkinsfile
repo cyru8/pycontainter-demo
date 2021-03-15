@@ -1,5 +1,23 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.8'
+        }
+    }
+    stages {
+        stage('Verify') {
+            steps {
+                sh '''
+                  ls
+                '''
+                sh 'printenv'
+                sh 'ls -l "$WORKSPACE"'
+            }
+        }
+
+
+//pipeline {
+//    agent any
 
     stages {
         stage('Verify Branch') {
@@ -9,8 +27,8 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh(script: 'docker images -a')
-                sh(script: """
+                sh(script: 'pwd')
+                sh(script: """)
                 docker build -t pycontainter-demo .
                 docker images -a
                 docker ps
