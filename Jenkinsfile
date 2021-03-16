@@ -31,7 +31,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    ls -l '$WORKSPACE'
+                    ls -l $WORKSPACE
                     def receiver = docker build -t pycontainter-demo .
                     docker images -a
                 docker ps
