@@ -48,7 +48,7 @@ pipeline {
         stage('Start test app') {
             steps {
                 scritp {
-                    receiver_container = docker run -d -p 5000:5000 pycontainter-demo
+                    receiver_container = docker run -d -p "5000:5000" pycontainter-demo
                     ./scripts/test_container.sh
                 }
                 // sh(script: """
