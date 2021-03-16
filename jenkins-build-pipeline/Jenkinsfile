@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh(script: 'pwd')
                 sh(script: """
-                ls -l '$WORKSPACE'
+                ls -l '$WORKSPACE/jenkins-build-pipeline'
                 docker build -t pycontainter-demo .
                 docker images -a
                 docker ps
