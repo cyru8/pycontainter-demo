@@ -70,20 +70,20 @@ pipeline {
         //         """)
         //     }
         // }
-        // stage("Push Container") {
-        //     steps {
-        //         echo "Workspace is $WORKSPACE"
-        //         dir("$WORKSPACE/azure-vote") {
-        //             script {
-        //                 docker.withRegistry('', 'DockerHub') {
-        //                     def image = docker.build('oadetiba/igp-voting-app')
-        //                     echo "Please proceed to push the image..."
-        //                     image.push()
-        //                 }
-        //             }
-        //         }
-        //     }
-        //}
+        stage("Push Container") {
+            steps {
+                echo "Workspace is $WORKSPACE"
+                dir("$WORKSPACE") {
+                    script {
+                        docker.withRegistry('', 'DockerHub') {
+                            def image = docker.build('oadetiba/Hello-Kubernetes')
+                            echo "Please proceed to push the image..."
+                            image.push()
+                        }
+                    }
+                }
+            }
+        }
         //Trivy: https://github.com/aquasecurity/trivy
         //stage('Scan Containers for Vulnerabilities with Trivy') {
         //    steps {
