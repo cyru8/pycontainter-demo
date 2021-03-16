@@ -76,7 +76,7 @@ pipeline {
                 dir("$WORKSPACE") {
                     script {
                         docker.withRegistry('', 'DockerHub') {
-                            def image = docker.build('oadetiba/Hello-Kubernetes')
+                            def image = docker.build('oadetiba/hello-kubernetes')
                             echo "Please proceed to push the image..."
                             image.push()
                         }
