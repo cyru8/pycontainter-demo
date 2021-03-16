@@ -1,9 +1,9 @@
-// pipeline {
-//     agent {
-//         docker {
-//             image 'oadetiba/cyru8-flask-app:latest'
-//         }
-//     }
+pipeline {
+    agent {
+        docker {
+            image 'oadetiba/cyru8-flask-app:latest'
+        }
+    }
 //     stages {
 //         stage('Verify') {
 //             steps {
@@ -15,8 +15,8 @@
 //            }
 //         }
 
-pipeline {
-    agent any
+//pipeline {
+//    agent any
 
     stages {
         stage('Verify Branch') {
