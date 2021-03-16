@@ -2,14 +2,6 @@ pipeline {
     agent {
         docker { image 'node:14-alpine' }
     }
-    
-    stages {
-        stage('Test') {
-            steps {
-                sh 'node --version'
-            }
-        }
-    }
 //     stages {
 //         stage('Verify') {
 //             steps {
@@ -25,6 +17,11 @@ pipeline {
 //    agent any
 
     stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
         stage('Verify Branch') {
             steps {
                 echo "${env.GIT_BRANCH}"
