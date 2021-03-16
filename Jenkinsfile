@@ -85,13 +85,13 @@ pipeline {
             }
         }
         //Trivy: https://github.com/aquasecurity/trivy
-        stage('Scan Containers for Vulnerabilities with Trivy') {
-           steps {
-               sh(script: """
-               trivy oadetiba/hello-kubernetes
-               """)
-           }
-        }
+        // stage('Scan Containers for Vulnerabilities with Trivy') {
+        //    steps {
+        //        sh(script: """
+        //        trivy oadetiba/hello-kubernetes
+        //        """)
+        //    }
+        // }
         //stage('Scan container with anchore for Vulnerability and Policy Compliance') {
         //    steps {
         //        echo "oadetiba/jenkins-course" > anchore_images
