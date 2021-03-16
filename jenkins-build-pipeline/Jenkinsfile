@@ -75,10 +75,12 @@ pipeline {
         // }
         stage("Build and Push the Image to Docker Registry") {
             steps {
-                echo "Workspace is $WORKSPACE"
-                dir("$WORKSPACE") {
+                echo "Workspace is $WORKSPACE/jenkins-build-pipeline"
+                sh (script: """
+                cd '$WORKSPACE/jenkins-build-pipeline'
+                """)
+                dir("$WORKSPACE/jenkins-build-pipeline") {
                     script {
-                        cd '$WORKSPACE/jenkins-build-pipeline'
                         docker.withRegistry('', 'DockerHub') {
                             def image = docker.build('oadetiba/hello-kubernetes')
                             echo "Please proceed to push the image..."
