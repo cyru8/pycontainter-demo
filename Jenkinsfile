@@ -1,4 +1,3 @@
-def receiver_container
 // pipeline {
 //     agent {
 //         docker { image 'python:3.8' }
@@ -30,44 +29,29 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                script {
-                    // ls -l $WORKSPACE
-                    def receiver = docker build -t pycontainter-demo .
-                    docker images -a
+                sh(script: 'pwd')
+                sh(script: """
+                ls -l '$WORKSPACE'
+                docker build -t pycontainter-demo .
+                docker images -a
                 docker ps
-                }
-                // sh(script: 'pwd')
-                // sh(script: """
-                // ls -l '$WORKSPACE'
-                // def receiver = docker build -t pycontainter-demo .
-                // docker images -a
-                // docker ps
-                // """)
+                """)
            }
         }
         stage('Start test app') {
             steps {
-                scritp {
-                    receiver_container = docker run -d -p "5000:5000" pycontainter-demo
+                sh(script: """
+                    docker run -d -p 5000:5000 pycontainter-demo
+                    docker ps
                     ./scripts/test_container.sh
-                }
-                // sh(script: """
-                //     docker run -d -p 5000:5000 pycontainter-demo
-                //     docker ps
-                //     ./scripts/test_container.sh
-                //     """)
+                    """)
         }
         post {
-            // success {
-            //     echo "App started successfully :)"
-            // }
-            // failure {
-            //     echo "App failed to start :("
-            //     }
-            always {
-                script {
-                    receiver_container.stop()
-                    }
+            success {
+                echo "App started successfully :)"
+            }
+            failure {
+                echo "App failed to start :("
                 }
             }
         }
