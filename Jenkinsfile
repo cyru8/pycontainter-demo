@@ -30,22 +30,32 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh(script: 'pwd')
-                sh(script: """
-                ls -l '$WORKSPACE'
-                docker build -t pycontainter-demo .
-                docker images -a
+                script {
+                    ls -l '$WORKSPACE'
+                    def receiver = docker build -t pycontainter-demo .
+                    docker images -a
                 docker ps
-                """)
+                }
+                // sh(script: 'pwd')
+                // sh(script: """
+                // ls -l '$WORKSPACE'
+                // def receiver = docker build -t pycontainter-demo .
+                // docker images -a
+                // docker ps
+                // """)
            }
         }
         stage('Start test app') {
             steps {
-                sh(script: """
-                    docker run -d -p 5000:5000 pycontainter-demo
-                    docker ps
+                scritp {
+                    receiver_container = docker run -d -p 5000:5000 pycontainter-demo
                     ./scripts/test_container.sh
-                    """)
+                }
+                // sh(script: """
+                //     docker run -d -p 5000:5000 pycontainter-demo
+                //     docker ps
+                //     ./scripts/test_container.sh
+                //     """)
         }
         post {
             // success {
