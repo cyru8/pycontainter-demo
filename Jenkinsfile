@@ -1,3 +1,4 @@
+def receiver_container
 // pipeline {
 //     agent {
 //         docker { image 'python:3.8' }
@@ -52,6 +53,11 @@ pipeline {
             }
             failure {
                 echo "App failed to start :("
+                }
+            always {
+                script {
+                    receiver_container.stop()
+                    }
                 }
             }
         }
