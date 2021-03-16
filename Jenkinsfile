@@ -48,16 +48,16 @@ pipeline {
                     """)
         }
         post {
-            always {
-                script {
-                    receiver_container.stop()
-                    }
-                }
             success {
                 echo "App started successfully :)"
             }
             failure {
                 echo "App failed to start :("
+                }
+            cleanup {
+                script {
+                    receiver_container.stop()
+                    }
                 }
             }
         }
