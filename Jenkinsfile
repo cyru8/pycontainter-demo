@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'oadetiba/cyru8-flask-app:latest'
+            image 'python:rc-slim-buster'
         }
     }
 //     stages {
