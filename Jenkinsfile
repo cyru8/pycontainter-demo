@@ -70,7 +70,7 @@ pipeline {
         //         """)
         //     }
         // }
-        stage("Push Container") {
+        stage("Build and Push the Image to Docker Registry) {
             steps {
                 echo "Workspace is $WORKSPACE"
                 dir("$WORKSPACE") {
