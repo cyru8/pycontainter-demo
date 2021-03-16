@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:14-alpine' }
+        docker { image 'python:3.8' }
     }
 //     stages {
 //         stage('Verify') {
@@ -19,7 +19,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh 'python --version'
             }
         }
         stage('Verify Branch') {

@@ -1,5 +1,5 @@
 # first stage
-From python:3.8 AS builder
+FROM python:3.8 AS builder
 COPY requirements.txt .
 
 # Install dependencies to the local user directory (e.g: /local/.local)
