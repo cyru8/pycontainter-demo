@@ -6,6 +6,7 @@ metadata:
     app: hello-kubernetes
   name: hello-kubernetes
 spec:
+  type: NodePort
   ports:
   - port: 80
     protocol: TCP
@@ -13,6 +14,5 @@ spec:
     nodePort: 30081
   selector:
     app: hello-kubernetes
-    type: NodePort
-status:
+ status:
   loadBalancer: {}
