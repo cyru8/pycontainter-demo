@@ -13,5 +13,6 @@ spec:
     nodePort: 30081
   selector:
     app: hello-kubernetes
+    type: NodePort
 status:
   loadBalancer: {}
