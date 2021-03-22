@@ -2,11 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   creationTimestamp: null
+  namespace: dev
   labels:
     app: hello-kubernetes
   name: hello-kubernetes
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 80
     protocol: TCP
